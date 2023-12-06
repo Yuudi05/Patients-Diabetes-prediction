@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-size: cover;
+            background-image: url("{% static 'DiabetesPrediction/images/ABCD2.jpg' %}");
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .main {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 550px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #0086b3;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        input[type="submit"] {
+            background-color: #4dc3ff;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        table tr td{
+            padding: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+   <div class="main">
+       <h1>ENTER THE FOLLOWING INFORMATION</h1>
+       <form action="result">
+           <table>
+               <tr>
+                   <td align="right">Pregnancies:</td>
+                   <td align="left"> <input type="text" name="n1"></td>
+               </tr>
+               <tr>
+                   <td align="right">Glucose:</td>
+                   <td align="left"> <input type="text" name="n2"></td>
+               </tr>
+               <tr>
+                   <td align="right">Blood Pressure:</td>
+                   <td align="left"> <input type="text" name="n3"></td>
+               </tr>
+               <tr>
+                   <td align="right">Skin Thickness:</td>
+                   <td align="left"> <input type="text" name="n4"></td>
+               </tr>
+               <tr>
+                   <td align="right">Insulin:</td>
+                   <td align="left"> <input type="text" name="n5"></td>
+               </tr>
+               <tr>
+                   <td align="right">BMI :</td>
+                   <td align="left"> <input type="text" name="n6"></td>
+               </tr>
+               <tr>
+                   <td align="right">Diabetes Pedigree Function:</td>
+                   <td align="left"> <input type="text" name="n7"></td>
+               </tr>
+               <tr>
+                   <td align="right">Age:</td>
+                   <td align="left"> <input type="text" name="n8"></td>
+               </tr>
+           </table>
+           <input type="submit" value="Send !!" class="col text-center btn btn-primary">
+       </form>
+  <div class="container text-center">
+   <div class="row justify-content-center">
+    <div class="col-4">
+      Result =
+    </div>
+    <div class="col-4" align="center" style="color: {% if result2 == 'Positive' %}red{% elif result2 == 'Negative' %}green{% endif %};">
+      {{ result2 }}
+    </div>
+  </div>
+  </div>
+
+
+   </div>
+
+   <!-- Bootstrap JS and Popper.js (required for Bootstrap functionality) -->
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
